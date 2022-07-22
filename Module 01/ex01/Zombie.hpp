@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:52:06 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/20 11:52:06 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:35:33 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 
 	// functions 
 	Zombie*	newZombie( std::string name );
-	void	randomChump( std::string name );
 	Zombie*	zombieHorde( int N, std::string name );
 	
 #endif
