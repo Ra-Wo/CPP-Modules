@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:11:10 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/23 16:46:28 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:11:39 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,16 @@
 		public :
 			Fixed();
 			Fixed(Fixed &obj);
-			Fixed & operator= (Fixed & obj);
+			Fixed(const int n);
+			Fixed(const float n);
+			Fixed & operator=(Fixed & obj);
 			~Fixed();
 			int getRawBits( void ) const;
 			void setRawBits( int const raw );
+			float toFloat( void ) const;
+			int toInt( void ) const;
 	};
 	
+	std::ostream &operator<<(std::ostream &cout, Fixed &obj);
+
 #endif
