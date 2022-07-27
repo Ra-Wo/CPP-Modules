@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:17:33 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/27 13:59:50 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:16:48 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Fixed::Fixed() {
 // Parameterized Constructor (int) --------------------------------------------
 Fixed::Fixed( const int num ) {
 	std::cout << "Int constructor called\n";
-	this->nb = round(num * (1 << this->fr_bits));
+	this->nb = roundf(num * (1 << this->fr_bits));
 }
 
 // Parameterized Constructor (int) --------------------------------------------
 Fixed::Fixed( const float num ) {
 	std::cout << "Float constructor called\n";
-	this->nb = round(num * (1 << this->fr_bits));
+	this->nb = roundf(num * (1 << this->fr_bits));
 }
 
 // copy constructor  ----------------------------------------------------------
@@ -72,5 +72,5 @@ float Fixed::toFloat( void ) const{
 
 
 int Fixed::toInt( void ) const {
-	return (round(this->getRawBits() >> (this->fr_bits)));
+	return (roundf(this->getRawBits() >> (this->fr_bits)));
 }
