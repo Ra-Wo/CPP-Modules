@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:17:33 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/27 18:12:37 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/07/28 10:24:26 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,17 @@ Fixed Fixed::operator*( const Fixed &r ) {
 	return result;
 }
 
+Fixed Fixed::operator*( Fixed &r ) {
+	Fixed result(this->toFloat() * r.toFloat());
+	return result;
+}
+
 Fixed Fixed::operator+( const Fixed &r ) {
+	Fixed result(this->toFloat() + r.toFloat());
+	return result;
+}
+
+Fixed Fixed::operator+( Fixed &r ) {
 	Fixed result(this->toFloat() + r.toFloat());
 	return result;
 }
@@ -135,7 +145,17 @@ Fixed Fixed::operator-( const Fixed &r ) {
 	return result;
 }
 
+Fixed Fixed::operator-( Fixed &r ) {
+	Fixed result(this->toFloat() - r.toFloat());
+	return result;
+}
+
 Fixed Fixed::operator/( const Fixed &r ) {
+	Fixed result(this->toFloat() / r.toFloat());
+	return result;
+}
+
+Fixed Fixed::operator/( Fixed &r ) {
 	Fixed result(this->toFloat() / r.toFloat());
 	return result;
 }
@@ -168,13 +188,13 @@ Fixed Fixed::operator--(int) {
 }
 
 
-// min -------------------------------------------------------------------
+// min const -------------------------------------------------------------
 Fixed const & Fixed::min(Fixed const &one, Fixed const &two) {
 	if (one.toFloat() < two.toFloat()) return one;
 	return two;
 }
 
-// max -------------------------------------------------------------------
+// max const -------------------------------------------------------------
 Fixed const & Fixed::max(Fixed const &one, Fixed const &two) {
 	if (one.toFloat() > two.toFloat()) return one;
 	return two;

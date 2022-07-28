@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:11:10 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/27 18:12:20 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/07/28 10:22:12 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@
 
 			// The 4 arithmetic operators:
 			Fixed operator*( const Fixed & );
+			Fixed operator*( Fixed & );
 			Fixed operator+( const Fixed & );
+			Fixed operator+( Fixed & );
 			Fixed operator-( const Fixed & );
+			Fixed operator-( Fixed & );
 			Fixed operator/( const Fixed & );
+			Fixed operator/( Fixed & );
 			
 			//The 4 increment/decrement
 			Fixed & operator++();
