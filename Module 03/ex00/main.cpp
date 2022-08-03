@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 16:41:20 by roudouch          #+#    #+#             */
-/*   Updated: 2022/07/31 16:12:02 by roudouch         ###   ########.fr       */
+/*   Created: 2022/08/01 13:09:17 by roudouch          #+#    #+#             */
+/*   Updated: 2022/08/03 13:16:18 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Point.hpp"
+#include "ClapTrap.hpp"
 
-int main( void ) {
-	
-	Point A(1, 1);
-	Point B(4, 2);
-	Point C(2, 7);
-	Point P(2, 3);
-	
-	// P = A;
-	// std::cout << P.getX().toFloat() << " " << P.getY().toFloat() << std::endl;	
+int main() {
 
-	bool isPointInTriangle = bsp(A, B, C, P);
-	std::cout << "isPointInTriangle: " << isPointInTriangle << std::endl;
-	
-	return 0;
+
+    std::cout << "\n*****************************\n\n";
+    
+    ClapTrap clap1("clap1");
+    
+    clap1.takeDamage(5);
+    clap1.beRepaired(10);
+    clap1.attack("clap2");
+    
+    std::cout << "\n*****************************\n";
+    return 0;
 }
