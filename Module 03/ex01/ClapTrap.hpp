@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:46:28 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/09 10:32:11 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:44:36 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
             virtual void attack(const std::string& target);
             void takeDamage(unsigned int amount);
             void beRepaired(unsigned int amount);
-            void guardGate();
     };
     
 #endif
