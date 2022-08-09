@@ -6,14 +6,14 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:49:44 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/03 13:15:24 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:19:28 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 
-// Constructors and destructors and operators
+// Constructors and destructors and operators -----------------------------------------------------
 
 ClapTrap::ClapTrap() {
     this->Name          = "Unknown";
@@ -49,7 +49,7 @@ ClapTrap::~ClapTrap() {
     std::cout << "ClapTrap " << this->Name << " is dead." << std::endl;
 }
 
-// methods
+// methods ---------------------------------------------------------------------------------------
 
 void ClapTrap::attack(const std::string& target) {
     if (this->energyPoints > 0 && this->HitPoints > 0) {
