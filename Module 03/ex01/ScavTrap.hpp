@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 14:50:35 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/08 15:50:18 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:44:44 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
             ScavTrap & operator=( ScavTrap const & obj );
             
             // methods
-            void guardGate();
             void attack(const std::string& target);
+            void guardGate();
     };
 
 #endif
