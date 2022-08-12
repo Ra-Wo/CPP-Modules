@@ -6,26 +6,27 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 13:09:17 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/12 11:08:50 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/12 11:19:11 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
 
 	std::cout << "\n*****************************\n\n";
 
-	FragTrap *fragtrap1 = new FragTrap("fragtrap1");
+	DiamondTrap *dt = new DiamondTrap("dt");
+	
+    dt->attack("Hello");
+	dt->whoAmI();
+    dt->highFivesGuys();
+    dt->guardGate();
 
-	fragtrap1->attack("fragtrap2");
-	fragtrap1->beRepaired(20);
-    fragtrap1->takeDamage(30);
-	fragtrap1->highFivesGuys();
+    delete dt;
 
-    delete fragtrap1;
-    
 	std::cout << "\n*****************************\n";
 	return 0;
 }
+
