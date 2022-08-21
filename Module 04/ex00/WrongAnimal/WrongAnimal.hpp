@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:39:23 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/15 19:01:16 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/19 18:36:12 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
             WrongAnimal &operator=(WrongAnimal const &obj);
             
             // method
-            virtual void makeSound() const;
+            void makeSound() const;
             // getter
             std::string getType() const;
             

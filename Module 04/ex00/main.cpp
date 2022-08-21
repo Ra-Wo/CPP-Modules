@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:31:49 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/15 19:03:18 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/19 18:44:09 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int main()
 {
     std::cout << "\n***********************************************\n\n";
 
-    const WrongAnimal* meta = new WrongAnimal();
+    const Animal* meta = new Animal();
     const Animal* j = new Dog();
-    const WrongCat* i = new WrongCat();
+    const Animal* i = new Cat();
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
     i->makeSound(); //will output the cat sound!
@@ -37,14 +37,15 @@ int main()
 // {
 //     std::cout << "\n***********************************************\n\n";
 
-//     const Animal* meta = new Animal();
-//     const Animal* j = new Dog();
-//     const Animal* i = new Cat();
+//     const WrongAnimal* meta = new WrongAnimal();
+//     const WrongCat* j = new WrongCat();
+//     const WrongAnimal* i = new WrongCat();
 //     std::cout << j->getType() << " " << std::endl;
 //     std::cout << i->getType() << " " << std::endl;
-//     i->makeSound(); //will output the cat sound!
-//     j->makeSound();
+    
 //     meta->makeSound();
+//     j->makeSound();
+//     i->makeSound(); //will output the cat sound!
     
 //     delete meta;
 //     delete j;
@@ -53,3 +54,4 @@ int main()
 //     std::cout << "\n\n***********************************************\n\n";
 //     return 0;
 // }
+

@@ -6,13 +6,14 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:39:23 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/19 18:30:16 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/19 18:47:08 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
     #define ANIMAL_HPP
     #include <iostream>
+    #include "../Brain/Brain.hpp"
     
     class Animal {
         protected:
