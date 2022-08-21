@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:49:45 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/20 10:16:07 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:49:48 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ Dog::Dog(Dog &obj)
 Dog::~Dog()
 {
     std::cout << "Dog Destructor is called" << std::endl;
-    delete this->_brain;
+    delete this->_brain; 
 }
 
 Dog &Dog::operator=(Dog const &obj)
 {
     std::cout << "Dog Assignment Operator is called" << std::endl;
     this->_type = obj._type;
-    delete this->_brain;
 
+    delete this->_brain;
     Brain *newBrain = new Brain();
     (*newBrain) = *obj._brain;
     

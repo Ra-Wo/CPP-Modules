@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:49:43 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/17 14:27:39 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/19 18:47:31 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
     #include "../Animal/Animal.hpp"
 
     class Dog : public Animal {
-
+        private:
+            Brain *_brain;
+            
         public:
             Dog();
             Dog(std::string name);

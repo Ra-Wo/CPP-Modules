@@ -6,13 +6,31 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:31:49 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/20 09:48:56 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:40:31 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-// int main()
+int main()
+{
+    std::cout << "\n***********************************************\n\n";
+    Animal *j = new Dog();
+    Animal *i = new Dog();
+
+    
+    *j = *i;
+
+
+    delete j; // should not create a leak
+    delete i;
+    std::cout << "\n***********************************************\n\n";
+
+    // check leaks
+    // system("leaks a.out");
+
+    return 0;
+}
 // {
 //     std::cout << "\n***********************************************\n\n";
 //     const Animal *j = new Dog();
@@ -26,19 +44,6 @@
 
 //     return 0;
 // }
-
-int main()
-{
-
-    std::cout << "\n***********************************************\n\n";
-    Dog basic;
-    {
-        Dog tmp = basic;
-    }
-    std::cout << "\n***********************************************\n\n";
-
-    return 0;
-}
 
 // int main()
 // {

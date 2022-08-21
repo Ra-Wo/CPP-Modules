@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:39:23 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/19 15:10:45 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:27:35 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
     class Animal {
         protected:
             std::string _type;
-            Brain *_brain;
         
         public:
             Animal();

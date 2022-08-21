@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:40:51 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/17 15:50:03 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:07:48 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ Brain &Brain::operator=(const Brain &src) {
     std::cout << "Brain assigned" << std::endl;
     for (int i = 0; i < 100; i++)
         this->ideas[i] = src.ideas[i];
-    return *this;
+    return (*this);
 }

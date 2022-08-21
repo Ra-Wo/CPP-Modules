@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:52:03 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/17 14:27:35 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/19 18:47:20 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
     #include "../Animal/Animal.hpp"
 
     class Cat : public Animal {
-
+        private:
+            Brain *_brain;
+            
         public:
             Cat();
             Cat(std::string type);
