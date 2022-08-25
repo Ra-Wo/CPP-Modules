@@ -6,41 +6,41 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/23 14:36:05 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/24 09:59:59 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main () {
+int main()
+{
+
+    std::cout << "************************************\n\n";
     
-    Bureaucrat *R = new Bureaucrat("Rasheed", 5);
-    std::cout << *R << "\n";
-    delete R;
+    try {
+
+        Bureaucrat *obj = new Bureaucrat("Rasheed", 148);
+        obj->decrementGrade();
+        obj->decrementGrade();
+        std::cout << (obj->getName()) << " " << (obj->getGrade()) << "\n";
+        delete obj;
     
+    } catch (int err) {
+        if (err == 1) Bureaucrat::GradeTooHighException();
+        if (err == 2) Bureaucrat::GradeTooLowException();
+    }
+    
+    std::cout << "\n************************************\n";
+
     return 0;
 }
 
-// int main()
-// {
-
-//     std::cout << "************************************\n\n";
+// int main () {
     
-//     try {
-
-//         Bureaucrat *obj = new Bureaucrat("Rasheed", 148);
-//         obj->decrementGrade();
-//         obj->decrementGrade();
-//         std::cout << (obj->getName()) << " " << (obj->getGrade()) << "\n";
-//         delete obj;
+//     Bureaucrat *R = new Bureaucrat("Rasheed", 5);
+//     std::cout << *R << "\n";
+//     delete R;
     
-//     } catch (int err) {
-//         if (err == 1) Bureaucrat::GradeTooHighException();
-//         if (err == 2) Bureaucrat::GradeTooLowException();
-//     }
-    
-//     std::cout << "\n************************************\n";
-
 //     return 0;
 // }
 

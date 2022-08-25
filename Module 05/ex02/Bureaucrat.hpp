@@ -6,14 +6,16 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:18 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/24 11:37:50 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:13:28 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #include <iostream>
-#include "Form.hpp"
+#include "./Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -30,13 +32,16 @@ public:
 
     // getters
     std::string getName();
-    int getGrade();
+    int getGrade() const;
 
-    //methods
+    // methods
     static void GradeTooHighException();
     static void GradeTooLowException();
     void incrementGrade();
     void decrementGrade();
+    void signForm(Form &form);
+    void executeForm(Form const & form);
+    
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat &src);
