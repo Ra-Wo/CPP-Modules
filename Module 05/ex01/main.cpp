@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/24 18:06:03 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/25 15:53:43 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ int main()
         Form *form = new Form("Access library", false, 100, 100);
         Form *form1 = new Form("Access labs", false, 80, 10);
 
-        form = form1;
+        *form = *form1;
 
         std::cout << *form << '\n';
         delete form;
+        delete form1;
     }
     catch (int err)
     {
@@ -43,6 +44,7 @@ int main()
 
         std::cout << '\n' << *form << '\n';
         delete form;
+        delete Rasheed;
     }
     catch (int err)
     {

@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 15:16:56 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/25 15:41:08 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@ int main()
     try
     {
         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 4);
-        Intern *G = new Intern();
+        Intern *G = new Intern;
+        
+        // "Robotomy Request", "Shrubbery Creation", "Presidential Pardon"
+        Form *form = G->makeForm("Presidential Pardon", "Batata");
 
-        G->makeForm("Robotomy Request", "Home");
-    
+        if (form != NULL)
+            std::cout << form->getName() << '\n';
+
         delete Rasheed;
+        delete G;
+        delete form;
     }
     catch (int err)
     {

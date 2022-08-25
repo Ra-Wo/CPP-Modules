@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 14:26:47 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/25 15:42:55 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main()
         Rasheed->executeForm(*a);
     
         delete a;
+        delete Rasheed;
     }
     catch (int err)
     {
@@ -64,6 +65,7 @@ int main()
 //         a->execute(*Rasheed);
     
 //         delete a;
+//         delete Rasheed;
 //     }
 //     catch (int err)
 //     {
@@ -96,7 +98,7 @@ int main()
 //         Rasheed->signForm(*a);
 //         a->execute(*Rasheed);
         
-
+//         delete Rasheed;
 //         delete a;
 //     }
 //     catch (int err)
