@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 10:00:28 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/24 17:53:18 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:57:25 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ public:
     Form &operator=(const Form &src);
 
     // methods
-    static void GradeTooHighException();
-    static void GradeTooLowException();
     void beSigned(Bureaucrat &person);
 
     // getters
@@ -46,6 +44,27 @@ public:
     bool &getSigned();
     const int &getRequiredGradeToSign();
     const int &getRequiredGradeToExecute();
+
+    // exception
+    class GradeTooHighException : public std::exception
+    {
+        public:
+        GradeTooHighException();
+        virtual ~GradeTooHighException() throw();
+        GradeTooHighException(GradeTooHighException const &src);
+        GradeTooHighException &operator=(GradeTooHighException const &src);
+        virtual const char *what() const throw();
+    };
+    
+    class GradeTooLowException : public std::exception
+    {
+        public:
+        GradeTooLowException();
+        virtual ~GradeTooLowException() throw();
+        GradeTooLowException(GradeTooLowException const &src);
+        GradeTooLowException &operator=(GradeTooLowException const &src);
+        virtual const char *what() const throw();
+    };
 };
 
 std::ostream &operator<<(std::ostream &cout, Form &obj);

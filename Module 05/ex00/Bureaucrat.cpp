@@ -6,36 +6,29 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:20:37 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/23 14:36:09 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 14:34:45 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(150)
-{
-    std::cout << "Bureaucrat default costractor is called\n";
-}
+Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-    std::cout << "Bureaucrat params costractor is called\n";
-    if (grade > 150) throw 1;
-    if (grade < 1) throw 2;
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
     this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &src)
 {
-    std::cout << "Bureaucrat copy costractor is called\n";
     *this = src;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-
-    std::cout << "Bureaucrat destractor is called\n";
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat &src)
 {
@@ -43,12 +36,14 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &src)
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &cout, Bureaucrat &src) {
+std::ostream &operator<<(std::ostream &cout, Bureaucrat &src)
+{
     cout << src.getName() << ", bureaucrat grade " << src.getGrade();
     return cout;
 }
 
-// getters
+// getters ***********************************************************
+
 std::string Bureaucrat::getName()
 {
     return this->_name;
@@ -59,23 +54,58 @@ int Bureaucrat::getGrade()
     return this->_grade;
 }
 
-// methods
-void Bureaucrat::GradeTooHighException() {
-    std::cout << "Grade is too high!\n";
-}
+// methods ***********************************************************
 
-void Bureaucrat::GradeTooLowException() {
-    std::cout << "Grade is too low!\n";
-}
-
-void Bureaucrat::incrementGrade() {
+void Bureaucrat::incrementGrade()
+{
     if (this->_grade > 1)
-       this->_grade--;
-    else throw 1;
+        this->_grade--;
+    else
+        throw Bureaucrat::GradeTooHighException();
 }
 
-void Bureaucrat::decrementGrade() {
+void Bureaucrat::decrementGrade()
+{
     if (this->_grade < 150)
         this->_grade++;
-    else throw 2;
+    else
+        throw Bureaucrat::GradeTooLowException();
+}
+
+// GradeTooHighException ***********************************************************
+
+Bureaucrat::GradeTooHighException::GradeTooHighException() {}
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
+Bureaucrat::GradeTooHighException::GradeTooHighException(GradeTooHighException const &src)
+{
+    *this = src;
+}
+Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(GradeTooHighException const &src)
+{
+    if (this != &src)
+        *this = src;
+    return *this;
+}
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade is Too high!\n";
+}
+
+// GradeTooLowException ************************************************************
+
+Bureaucrat::GradeTooLowException::GradeTooLowException() {}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
+Bureaucrat::GradeTooLowException::GradeTooLowException(GradeTooLowException const &src)
+{
+    *this = src;
+}
+Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(GradeTooLowException const &src)
+{
+    if (this != &src)
+        *this = src;
+    return *this;
+}
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade is Too Low!\n";
 }

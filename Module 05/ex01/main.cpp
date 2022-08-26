@@ -6,38 +6,37 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 15:53:43 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 15:03:15 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 int main()
 {
     std::cout << "************************************\n\n";
     try
     {
-        // Bureaucrat *Rasheed = new Bureaucrat();
+        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 99);
         Form *form = new Form("Access library", false, 100, 100);
-        Form *form1 = new Form("Access labs", false, 80, 10);
 
-        *form = *form1;
-
+        form->beSigned(*Rasheed);
+        
         std::cout << *form << '\n';
+        
         delete form;
-        delete form1;
+        delete Rasheed;
     }
-    catch (int err)
+    catch (const std::exception &error)
     {
-        if (err == 1)
-            Form::GradeTooHighException();
-        if (err == 2)
-            Form ::GradeTooLowException();
+        std::cout << error.what();
     }
-    std::cout << "\n************************************\n";
+
+    
+    std::cout << "\n************************************\n\n";
     try
     {
-        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 10);
+        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 101);
         Form *form = new Form("Access library", false, 100, 100);
 
         Rasheed->signForm(*form);
@@ -46,12 +45,9 @@ int main()
         delete form;
         delete Rasheed;
     }
-    catch (int err)
+    catch (const std::exception &error)
     {
-        if (err == 1)
-            Form::GradeTooHighException();
-        if (err == 2)
-            Form ::GradeTooLowException();
+        std::cout << error.what();
     }
     std::cout << "\n************************************\n";
     return 0;

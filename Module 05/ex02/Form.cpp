@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 10:05:57 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 11:29:52 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 15:54:55 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ Form::Form(
       _required_grade_to_execute(required_grade_to_execute)
 {
     if (required_grade_to_sign > 150 || required_grade_to_execute > 150)
-        throw 1;
+        throw Form::GradeTooLowException();
     if (required_grade_to_sign < 1 || required_grade_to_execute < 1)
-        throw 2;
+        throw Form::GradeTooHighException();
     this->_signed = isSigned;
 }
 
@@ -51,20 +51,9 @@ Form &Form::operator=(const Form &src)
     return *this;
 }
 
-// methods
-void Form::GradeTooHighException()
-{
-    std::cout << "Grade is too high!!\n";
-}
-
-void Form::GradeTooLowException()
-{
-    std::cout << "Grade is too low!\n";
-}
-
 void Form::beSigned(Bureaucrat &person) {
     if (person.getGrade() > this->getRequiredGradeToSign())
-        throw 2;
+        throw Form::GradeTooLowException();
     else
         this->_signed = true;
 }
@@ -98,4 +87,61 @@ std::ostream &operator<<(std::ostream &cout, Form &obj) {
             << "\nGrade required to execute it: " << obj.getRequiredGradeToExecute()
             << "\nSigned?: " << (obj.getSigned() == 0? "false" : "true");
     return cout;
+}
+
+// GradeTooHighException ***********************************************************
+
+Form::GradeTooHighException::GradeTooHighException() {}
+Form::GradeTooHighException::~GradeTooHighException() throw() {}
+Form::GradeTooHighException::GradeTooHighException(GradeTooHighException const &src)
+{
+    *this = src;
+}
+Form::GradeTooHighException &Form::GradeTooHighException::operator=(GradeTooHighException const &src)
+{
+    if (this != &src)
+        *this = src;
+    return *this;
+}
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "[Form]: Grade is Too high!\n";
+}
+
+// GradeTooLowException ************************************************************
+
+Form::GradeTooLowException::GradeTooLowException() {}
+Form::GradeTooLowException::~GradeTooLowException() throw() {}
+Form::GradeTooLowException::GradeTooLowException(GradeTooLowException const &src)
+{
+    *this = src;
+}
+Form::GradeTooLowException &Form::GradeTooLowException::operator=(GradeTooLowException const &src)
+{
+    if (this != &src)
+        *this = src;
+    return *this;
+}
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "[Form]: Grade is Too Low!\n";
+}
+
+// FormIsNotSign ************************************************************
+
+Form::FormIsNotSign::FormIsNotSign() {}
+Form::FormIsNotSign::~FormIsNotSign() throw() {}
+Form::FormIsNotSign::FormIsNotSign(FormIsNotSign const &src)
+{
+    *this = src;
+}
+Form::FormIsNotSign &Form::FormIsNotSign::operator=(FormIsNotSign const &src)
+{
+    if (this != &src)
+        *this = src;
+    return *this;
+}
+const char *Form::FormIsNotSign::what() const throw()
+{
+    return "[Form]: the form is not sign yet!!\n";
 }

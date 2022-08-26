@@ -6,52 +6,40 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 15:42:55 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:35:59 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "./ShrubberyCreationForm.hpp"
 #include "./RobotomyRequestForm.hpp"
 #include "./PresidentialPardonForm.hpp"
 
-int main()
-{
-    std::cout << "************************************\n\n";
-    try
-    {
-        PresidentialPardonForm *a = new PresidentialPardonForm("Killer Ahmed");
-        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 4);
-        
-        Rasheed->decrementGrade();
+// int main()
+// {
+//     std::cout << "************************************\n\n";
+//     try
+//     {
+//         PresidentialPardonForm *a = new PresidentialPardonForm("Killer Ahmed");
+//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 4);
 
-        Rasheed->signForm(*a);
-        a->execute(*Rasheed);
+//         Rasheed->decrementGrade();
 
-        Rasheed->executeForm(*a);
-    
-        delete a;
-        delete Rasheed;
-    }
-    catch (int err)
-    {
-        if (err == 1)
-            Form::GradeTooHighException();
-        if (err == 2)
-            Form ::GradeTooLowException();
-    }
-    catch (const char *err)
-    {
-        std::cout << err << '\n';
-    }
-    catch (...)
-    {
-        std::cout << "Error!\n";
-    }
+//         Rasheed->signForm(*a);
+//         a->execute(*Rasheed);
 
-    std::cout << "\n************************************\n";
-    return 0;
-}
+//         Rasheed->executeForm(*a);
+
+//         delete a;
+//         delete Rasheed;
+//     }
+//     catch (std::exception &error)
+//     {
+//         std::cout << error.what() << '\n';
+//     }
+//     std::cout << "\n************************************\n";
+//     return 0;
+// }
 
 // int main()
 // {
@@ -63,60 +51,38 @@ int main()
 
 //         Rasheed->signForm(*a);
 //         a->execute(*Rasheed);
-    
+
 //         delete a;
 //         delete Rasheed;
 //     }
-//     catch (int err)
+//     catch (std::exception &error)
 //     {
-//         if (err == 1)
-//             Form::GradeTooHighException();
-//         if (err == 2)
-//             Form ::GradeTooLowException();
-//     }
-//     catch (const char *err)
-//     {
-//         std::cout << err << '\n';
-//     }
-//     catch (...)
-//     {
-//         std::cout << "Error!\n";
+//         std::cout << error.what() << '\n';
 //     }
 
 //     std::cout << "\n************************************\n";
 //     return 0;
 // }
 
-// int main()
-// {
-//     std::cout << "************************************\n\n";
-//     try
-//     {
-//         ShrubberyCreationForm *a = new ShrubberyCreationForm("Home");
-//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 50);
+int main()
+{
+    std::cout << "************************************\n\n";
+    try
+    {
+        ShrubberyCreationForm *a = new ShrubberyCreationForm("Home");
+        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 50);
 
-//         Rasheed->signForm(*a);
-//         a->execute(*Rasheed);
-        
-//         delete Rasheed;
-//         delete a;
-//     }
-//     catch (int err)
-//     {
-//         if (err == 1)
-//             Form::GradeTooHighException();
-//         if (err == 2)
-//             Form ::GradeTooLowException();
-//     }
-//     catch (const char *err)
-//     {
-//         std::cout << err << '\n';
-//     }
-//     catch (...)
-//     {
-//         std::cout << "Error!\n";
-//     }
+        Rasheed->signForm(*a);
+        a->execute(*Rasheed);
 
-//     std::cout << "\n************************************\n";
-//     return 0;
-// }
+        delete Rasheed;
+        delete a;
+    }
+    catch (std::exception &error)
+    {
+        std::cout << error.what() << '\n';
+    }
+
+    std::cout << "\n************************************\n";
+    return 0;
+}

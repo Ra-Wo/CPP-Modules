@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 10:57:06 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/25 13:25:42 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:36:24 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ void ShrubberyCreationForm::setTarget(std::string &target)
 // methods
 void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-    if (this->getSigned() == false) throw "The form is not signed!";
-    if (executor.getGrade() > this->getRequiredGradeToExecute()) throw 2;
+    if (this->getSigned() == false)
+        throw Form::FormIsNotSign();
+    if (executor.getGrade() > this->getRequiredGradeToExecute())
+        throw Form::GradeTooLowException();
     std::ofstream file(this->getTarget() + "_shrubbery");
-    
+
     file << "          o88" << '\n';
     file << "         ccee88oo" << '\n';
     file << "  C8O8O8Q8PoOb o8oo" << '\n';

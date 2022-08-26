@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:18 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/24 17:53:16 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 14:10:47 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,36 @@ public:
     Bureaucrat(std::string name, int grade);
     ~Bureaucrat();
     Bureaucrat &operator=(Bureaucrat &src);
-
+    
     // getters
     std::string getName();
     int getGrade();
 
+    // exception
+    class GradeTooHighException : public std::exception
+    {
+        public:
+        GradeTooHighException();
+        virtual ~GradeTooHighException() throw();
+        GradeTooHighException(GradeTooHighException const &src);
+        GradeTooHighException &operator=(GradeTooHighException const &src);
+        virtual const char *what() const throw();
+    };
+    
+    class GradeTooLowException : public std::exception
+    {
+        public:
+        GradeTooLowException();
+        virtual ~GradeTooLowException() throw();
+        GradeTooLowException(GradeTooLowException const &src);
+        GradeTooLowException &operator=(GradeTooLowException const &src);
+        virtual const char *what() const throw();
+    };
+    
     // methods
-    static void GradeTooHighException();
-    static void GradeTooLowException();
     void incrementGrade();
     void decrementGrade();
     void signForm(Form &form);
-    
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat &src);
