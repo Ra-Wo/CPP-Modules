@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/26 16:35:59 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:56:34 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,31 @@
 #include "./RobotomyRequestForm.hpp"
 #include "./PresidentialPardonForm.hpp"
 
-// int main()
-// {
-//     std::cout << "************************************\n\n";
-//     try
-//     {
-//         PresidentialPardonForm *a = new PresidentialPardonForm("Killer Ahmed");
-//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 4);
+int main()
+{
+    std::cout << "************************************\n\n";
+    try
+    {
+        PresidentialPardonForm *a = new PresidentialPardonForm("Killer Ahmed");
+        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 1);
 
-//         Rasheed->decrementGrade();
+        Rasheed->decrementGrade();
 
-//         Rasheed->signForm(*a);
-//         a->execute(*Rasheed);
+        Rasheed->signForm(*a);
+        a->execute(*Rasheed);
 
-//         Rasheed->executeForm(*a);
+        Rasheed->executeForm(*a);
 
-//         delete a;
-//         delete Rasheed;
-//     }
-//     catch (std::exception &error)
-//     {
-//         std::cout << error.what() << '\n';
-//     }
-//     std::cout << "\n************************************\n";
-//     return 0;
-// }
+        delete a;
+        delete Rasheed;
+    }
+    catch (std::exception &error)
+    {
+        std::cout << error.what() << '\n';
+    }
+    std::cout << "\n************************************\n";
+    return 0;
+}
 
 // int main()
 // {
@@ -47,7 +47,7 @@
 //     try
 //     {
 //         RobotomyRequestForm *a = new RobotomyRequestForm("Home");
-//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 44);
+//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 1);
 
 //         Rasheed->signForm(*a);
 //         a->execute(*Rasheed);
@@ -64,25 +64,25 @@
 //     return 0;
 // }
 
-int main()
-{
-    std::cout << "************************************\n\n";
-    try
-    {
-        ShrubberyCreationForm *a = new ShrubberyCreationForm("Home");
-        Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 50);
+// int main()
+// {
+//     std::cout << "************************************\n\n";
+//     try
+//     {
+//         ShrubberyCreationForm *a = new ShrubberyCreationForm("Home");
+//         Bureaucrat *Rasheed = new Bureaucrat("Rasheed", 50);
 
-        Rasheed->signForm(*a);
-        a->execute(*Rasheed);
+//         Rasheed->signForm(*a);
+//         a->execute(*Rasheed);
 
-        delete Rasheed;
-        delete a;
-    }
-    catch (std::exception &error)
-    {
-        std::cout << error.what() << '\n';
-    }
+//         delete Rasheed;
+//         delete a;
+//     }
+//     catch (std::exception &error)
+//     {
+//         std::cout << error.what() << '\n';
+//     }
 
-    std::cout << "\n************************************\n";
-    return 0;
-}
+//     std::cout << "\n************************************\n";
+//     return 0;
+// }
