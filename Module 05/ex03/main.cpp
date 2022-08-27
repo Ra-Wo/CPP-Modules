@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:12:04 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/26 18:32:08 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/27 11:52:01 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ int main()
         Intern *G = new Intern;
         
         // "Robotomy Request", "Shrubbery Creation", "Presidential Pardon"
-        Form *form = G->makeForm("Robotomy Request", "Batata");
+        Form *form = G->makeForm("Shrubbery Creation", "Batata");
 
-        if (form != NULL)
-            std::cout << form->getName() << '\n';
+        std::cout   << "Form Name: "
+                    << form->getName() 
+                    << ", Target: "
+                    << ((ShrubberyCreationForm *)form)->getTarget()
+                    << '\n';
 
         delete Rasheed;
         delete G;

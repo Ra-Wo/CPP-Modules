@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:37:24 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/26 18:28:41 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/27 11:25:14 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@
 class Intern
 {
 private:
-
 public:
     Intern();
     Intern(Intern &src);
     ~Intern();
     Intern &operator=(Intern &src);
     Form *makeForm(std::string formName, std::string formTarget);
-    
+
+    // methods
+    Form *createRobotomy(std::string target);
+    Form *createShrubbery(std::string target);
+    Form *createPresidentPardon(std::string target);
+
     // exception
     class FormIsNotFind : public std::exception
     {
@@ -40,5 +44,7 @@ public:
         virtual const char *what() const throw();
     };
 };
+
+typedef Form *(Intern::*Forms[3])(std::string formTarget);
 
 #endif
