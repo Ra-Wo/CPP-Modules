@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 11:11:16 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/29 12:54:08 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:07:44 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ bool check_is_pseudo_literal(std::string str)
 {
     return (
         str == "-inff" || str == "+inff" || str == "+inf"  ||
-        str == "-inf"  || str == "nanf"  || str == "nan"
+        str == "-inf"  || str == "nanf"  || str == "nan" ||
+        str == "inff"  || str == "inf" 
     );
 }
 
@@ -43,18 +44,21 @@ void printDouble(float num) {
 
 void printAllTypes(std::string str)
 {
-    float num = stof(str);
+    float num;
+    if (!isdigit(str[0])) {
+        num = static_cast<float>(str[0]);
+    } else 
+        num = stof(str);
     printChar(num);
     printInt(num);
     printFloat(num);
     printDouble(num);
 }
 
-
 void printAllTypesForPseudoLiterals(std::string str)
 {
-    std::string ForFloat[3] = {"-inff", "+inff", "nanf"};
-    std::string ForDouble[3] = {"-inf", "+inf", "nan"};
+    std::string ForFloat[4] = {"-inff", "+inff", "inff", "nanf"};
+    std::string ForDouble[4] = {"-inf", "+inf", "inf", "nan"};
 
     for (int i = 0; i < 3; i++)
     {
@@ -70,10 +74,9 @@ void printAllTypesForPseudoLiterals(std::string str)
 }
 
 void checkArgIsValid(std::string str) {
-    for (int i = 0; i < static_cast<int>(str.length()); i++) {
-        if (isdigit(str[i]) == 0 && str[i] != '.' && str[i] != 'f')
-            throw("\n❌: Wrong argument!\n");
-    }
+    
+    if (!isdigit(str[1]) && str.length() > 1)
+        throw("\n❌: Wrong argument!\n");
 }
 
 int main(int ac, char **av)
