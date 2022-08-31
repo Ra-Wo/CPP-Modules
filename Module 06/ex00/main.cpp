@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 11:11:16 by roudouch          #+#    #+#             */
-/*   Updated: 2022/08/30 11:07:44 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:02:32 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void printAllTypesForPseudoLiterals(std::string str)
 
 void checkArgIsValid(std::string str) {
     
-    if (!isdigit(str[1]) && str.length() > 1)
+    if (!isdigit(str[0]) && str.length() > 1)
         throw("\n❌: Wrong argument!\n");
 }
 
