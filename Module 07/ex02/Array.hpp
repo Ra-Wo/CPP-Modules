@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:56:09 by roudouch          #+#    #+#             */
-/*   Updated: 2022/09/01 17:53:58 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/09/02 12:15:26 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ template<typename T> class Array {
             *this = src;
         }
         
-        ~Array() {}
+        ~Array() {
+            if (getSize() >= 1)
+                delete [] array; 
+        }
         
         // operators
         Array &operator=(Array &src) {
