@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 12:43:36 by roudouch          #+#    #+#             */
-/*   Updated: 2022/09/05 13:55:53 by roudouch         ###   ########.fr       */
+/*   Created: 2022/09/05 16:01:40 by roudouch          #+#    #+#             */
+/*   Updated: 2022/09/05 17:24:25 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
+#include <iostream>
+#include <stack>
 
-
-int main()
-{
-    try {
+template<typename T, typename deque = std::deque<T> >
+class MutantStack: public std::stack<T> {
+    public:
+        typedef typename deque::iterator iterator;
         
-        std::vector<int> vec;
-        for (int i = 0; i < 10; i++) {
-            vec.push_back(i);
+        iterator begin(void) {
+            return this->c.begin();
         }
-        std::cout << "vector: ";
-        for (int i = 0; i < 10; i++) {
-            std::cout << vec[i] << " - ";
-        }
-        std::cout << "\nFind in: " << easyfind(vec, 2);
 
-    } catch (std::exception &error) {
-        std::cout << error.what() << '\n';
-    }
-    return 0;
-}
+        iterator end(void) {
+            return this->c.end();
+        }
+};
+
+#endif

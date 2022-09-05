@@ -6,13 +6,30 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:43:31 by roudouch          #+#    #+#             */
-/*   Updated: 2022/09/03 12:44:50 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:56:17 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 #include <iostream>
+#include <vector>
+#include <array>
+#include <algorithm>
 
+class ElementNotFound : public std::exception {
+    virtual const char* what() const _NOEXCEPT{
+        return "Element is not in the container!";          
+    }
+};
+
+template<typename T>
+    int easyfind(T &container, int toFind) {
+        std::vector<int>::iterator it;
+
+        it = std::find(container.begin(), container.end(), toFind);
+        if (it == container.end()) throw ElementNotFound();
+        return it - container.begin();
+    }
 
 #endif
