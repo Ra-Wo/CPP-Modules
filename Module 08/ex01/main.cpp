@@ -14,7 +14,6 @@
 
 int main()
 {
-    
     try {
 
         Span sp = Span(5);

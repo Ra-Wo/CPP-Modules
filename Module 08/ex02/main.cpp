@@ -12,8 +12,8 @@
 
 #include "./MutantStack.hpp"
 
- int main() {
-    
+int main() {
+
     MutantStack<int> myStack;
 
     myStack.push(60);
@@ -24,7 +24,7 @@
 
     MutantStack<int>::iterator it = newStack.begin();
     MutantStack<int>::iterator ite = newStack.end();
-    
+
     while (it != ite)
     {
         std::cout << *it << std::endl;
@@ -32,7 +32,7 @@
     }
 
     return 0;
- }
+}
 
 
 //int main()
@@ -69,7 +69,6 @@
 
 
 // int main() {
-    
 //     MutantStack<int> myStack;
     
 //     myStack.push(60);

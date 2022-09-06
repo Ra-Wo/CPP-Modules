@@ -33,7 +33,7 @@ class MutantStack: public std::stack<T> {
         
         MutantStack(MutantStack<T> &src) {
             if (this != &src)
-            *this = src;
+                *this = src;
         }
 };
 
