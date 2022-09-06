@@ -20,12 +20,20 @@ class MutantStack: public std::stack<T> {
     public:
         typedef typename deque::iterator iterator;
         
+        MutantStack() {}
+        ~MutantStack() {}
+
         iterator begin(void) {
             return this->c.begin();
         }
 
         iterator end(void) {
             return this->c.end();
+        }
+        
+        MutantStack(MutantStack<T> &src) {
+            if (this != &src)
+            *this = src;
         }
 };
 

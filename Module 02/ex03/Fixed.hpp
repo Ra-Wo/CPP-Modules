@@ -69,5 +69,4 @@
 	};
 	
 	std::ostream &operator<<(std::ostream & cout, Fixed const & obj);
-
 #endif
