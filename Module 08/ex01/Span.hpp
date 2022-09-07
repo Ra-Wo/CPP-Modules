@@ -37,23 +37,22 @@ class Span {
     }
     
     int shortestSpan() {
-        int shortest = -1;
         if (container.size() < 1) throw NoSpanCanFound();
+        
+        int shortest = -1;
+        std::sort(container.begin(), container.end());
         for (size_t i = 0; i < container.size(); i++) {
             int dist = abs(container[i] - container[i - 1]);
             if (dist < shortest || shortest == -1) shortest = dist;
-        }
+        }        
         return shortest;
     }
 
     int longestSpan() {
-        int longest = -1;
         if (container.size() < 1) throw NoSpanCanFound();
-        for (size_t i = 0; i < container.size(); i++) {
-            int dist = abs(container[i] - container[i - 1]);
-            if (dist > longest || longest == -1) longest = dist;
-        }
-        return longest;
+        
+        std::sort(container.begin(), container.end());
+        return (*--container.end()) - (*container.begin());
     }
 
     //exception

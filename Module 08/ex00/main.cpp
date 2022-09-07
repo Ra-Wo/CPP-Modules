@@ -22,7 +22,7 @@ int main()
             vec.push_back(i);
         }
         std::cout << "vector: ";
-        for (int i = 0; i < 10; i++) {
+        for (size_t i = 0; i < vec.size(); i++) {
             std::cout << vec[i] << " - ";
         }
         std::cout << "\nFind in: " << easyfind(vec, 2);
