@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:36:18 by roudouch          #+#    #+#             */
-/*   Updated: 2022/09/08 13:59:13 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:28:35 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ void Span::addNumber(int num) {
     ) : (
         container.push_back(num)
     );
+}
+
+void Span::addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end) {
+    while (start != end) {
+        if (static_cast<int>(container.size()) >= size)
+            throw Span::containerIsFull();
+        container.push_back(*start);
+        start++;
+    }
 }
 
 int Span::shortestSpan() {

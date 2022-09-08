@@ -6,7 +6,7 @@
 /*   By: roudouch <roudouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:07:02 by roudouch          #+#    #+#             */
-/*   Updated: 2022/09/08 13:59:16 by roudouch         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:44:09 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Span {
         Span &operator=(Span const &src);
         // methods
         void addNumber(int num);
+        void addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end);
         int shortestSpan();
         int longestSpan();
 
